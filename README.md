@@ -22,9 +22,10 @@ A simple full-stack banking application with Spring Boot (Java) backend, H2 in-m
 5. [Database Console](#database-console)
 6. [Automated Tests](#automated-tests)
 7. [Data Seeding](#data-seeding)
-8. [Github links](#github-links)
-9. [Implemented User Stories](#implemented-user-stories)
-10. [Author](#author)
+8. [Application Binary Hosting](#application-binary-hosting)
+9. [Github links](#github-links)
+10. [Implemented User Stories](#implemented-user-stories)
+11. [Author](#author)
 
 ---
 
@@ -126,6 +127,57 @@ The file src/main/resources/sql-scripts/add-data.sql seeds 10 demo accounts and 
 | US5 | All endpoints are documented in Swagger UI.                                                | ✅ Done |
 | US6 | I can run automated tests against account and transaction services.                        | ✅ Done |
 
+## Application Binary Hosting
+
+We’ve published the compiled JAR as a GitHub Release so anyone can quickly download and run the API without building from source.
+
+### Prerequisites
+
+- **Java 17+** installed and on your `PATH`  
+  Verify with:
+  ```bash
+  java -version
+Network access to port 8080 (the default Spring Boot port).
+
+Download the JAR
+```bash
+Go to our Release page:
+https://github.com/KamiDiego/bankapp-JAVA-Backend/releases/tag/final
+
+Under Assets, click bankapp-0.0.1-SNAPSHOT.jar to download.
+Or, from the command line:
+
+wget https://github.com/KamiDiego/bankapp-JAVA-Backend/releases/download/final/bankapp-0.0.1-SNAPSHOT.jar
+```
+Run the API
+```bash
+java -jar bankapp-0.0.1-SNAPSHOT.jar
+Spring Boot will start on port 8080.
+```
+You’ll see startup logs and confirmation that the H2 console is enabled.
+```bash
+Verify It’s Running
+Swagger UI (Interactive API docs):
+http://localhost:8080/swagger-ui.html
+
+H2 Console (In-memory Database):
+
+-http://localhost:8080/h2-console
+-JDBC URL: jdbc:h2:mem:bankdb
+-User: sa
+-Password: (leave blank)
+
+Health Check (if enabled):
+curl http://localhost:8080/actuator/health
+```
+
+Run the Frontend Locally
+```bash
+cd bankapp-vue-frontend
+npm install
+npm run serve
+The Vue app will launch on http://localhost:8081/ and automatically communicate with the backend on port 8080.
+```
 # Github Links
 https://github.com/KamiDiego/bankapp-JAVA-backend
 https://github.com/KamiDiego/bankapp-vue-frontend
