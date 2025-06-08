@@ -183,6 +183,6 @@ https://github.com/KamiDiego/bankapp-JAVA-backend
 https://github.com/KamiDiego/bankapp-vue-frontend
 
 # Author
-Diego Báez – Solo implementation
+706858 Diego Báez – Solo implementation
 
 
